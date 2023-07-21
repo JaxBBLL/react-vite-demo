@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useArray = <T>(array: T[]) => {
   const [value, setValue] = useState(array);
@@ -13,4 +13,10 @@ export const useArray = <T>(array: T[]) => {
     },
     clear: () => setValue([]),
   };
+};
+
+export const useMount = (callback: () => void) => {
+  useEffect(() => {
+    callback();
+  }, []);
 };

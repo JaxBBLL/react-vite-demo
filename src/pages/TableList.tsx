@@ -1,7 +1,21 @@
-import { useState } from "react";
+import { Table, TableColumnProps } from "@arco-design/web-react";
 
 export default () => {
-  const [value, setValue] = useState([
+  const columns: TableColumnProps[] = [
+    {
+      title: "id",
+      dataIndex: "id",
+    },
+    {
+      title: "姓名",
+      dataIndex: "name",
+    },
+    {
+      title: "性别",
+      dataIndex: "gender",
+    },
+  ];
+  const data = [
     {
       name: "Jack",
       id: 1,
@@ -12,28 +26,7 @@ export default () => {
       id: 2,
       gender: 1,
     },
-  ]);
+  ];
 
-  return (
-    <table className="table table-striped table-bordered mt-2">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>gender</th>
-        </tr>
-      </thead>
-      <tbody>
-        {value.map((item) => {
-          return (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.gender}</td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
-  );
+  return <Table columns={columns} data={data} rowKey="id" />;
 };

@@ -1,18 +1,25 @@
 import React, { useState } from "react";
+interface User {
+  name: string;
+}
 
-export const ProviderContext = React.createContext({
+const state = {
   user: {
-    name: "",
+    name: "JaxBBLL",
   },
-});
+  setUser: () => {},
+};
 
-export function ProviderApp({ children }: { children: React.ReactNode }) {
-  const [user] = useState({
-    name: "Jack",
-  });
+const ProviderContext = React.createContext<{
+  user: User;
+  setUser: (user: User) => void;
+}>(state);
+
+export function AppProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState(state.user);
 
   return (
-    <ProviderContext.Provider value={{ user }}>
+    <ProviderContext.Provider value={{ user, setUser }}>
       {children}
     </ProviderContext.Provider>
   );

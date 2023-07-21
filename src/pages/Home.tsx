@@ -1,18 +1,20 @@
-import React from "react";
-
-import SearchHeader from "./SearchHeader";
-import TableList from "./TableList";
 import { useProvider } from "../context";
+import { useMount } from "@/hooks";
 
 function App() {
-  const { user } = useProvider();
+  const { user, setUser } = useProvider();
+
+  useMount(() => {
+    setTimeout(() => {
+      setUser({
+        name: "liusc",
+      });
+    }, 2000);
+  });
+
   return (
     <>
       <p>用户：{user.name}</p>
-      <div className="container pt-2">
-        <SearchHeader />
-        <TableList />
-      </div>
     </>
   );
 }

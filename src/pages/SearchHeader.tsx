@@ -1,21 +1,15 @@
 import { useState } from "react";
+import { Input } from "@arco-design/web-react";
 
 export default () => {
   const [value, setValue] = useState("");
 
-  const onSearch = () => {};
-
   return (
-    <div className="input-group">
-      <input
-        className="form-control"
-        type="text"
-        value={value}
-        onInput={(e) => setValue(e.currentTarget.value)}
-      />
-      <button className="btn btn-primary" type="button">
-        Button
-      </button>
-    </div>
+    <Input.Search
+      value={value}
+      onChange={(value) => setValue(value)}
+      style={{ width: 350, marginBottom: 10 }}
+      searchButton={true}
+    />
   );
 };
