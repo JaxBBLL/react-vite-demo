@@ -7,6 +7,7 @@ import Unocss from "unocss/vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    Unocss(),
     react(),
     vitePluginForArco({
       // https://github.com/arco-design/arco-plugins/blob/main/packages/plugin-vite-react/README.zh-CN.md
@@ -15,7 +16,6 @@ export default defineConfig({
       style: true,
       varsInjectScope: [],
     }),
-    Unocss(),
   ],
   resolve: {
     alias: {
