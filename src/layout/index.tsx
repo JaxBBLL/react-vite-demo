@@ -1,13 +1,15 @@
-import Router from "@/router/index";
+import { Outlet } from "react-router-dom";
 import Nav from "./Nav";
 
-const AppWrapper = () => {
+const Layout = () => {
   return (
-    <div className="w-1200 mx-auto">
+    <>
       <Nav />
-      <Router />
-    </div>
+      <div className="w-1200 mx-auto">
+        <Outlet />
+      </div>
+    </>
   );
 };
 
-export default AppWrapper;
+export default Layout;

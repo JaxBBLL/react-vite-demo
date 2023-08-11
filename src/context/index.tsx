@@ -27,6 +27,5 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
 export const useProvider = () => {
   const context = React.useContext(ProviderContext);
-
   return context;
 };

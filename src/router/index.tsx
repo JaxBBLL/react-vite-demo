@@ -1,14 +1,33 @@
-import { Routes, Route } from "react-router-dom";
+import { ReactNode } from "react";
+import { Navigate } from "react-router-dom";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
+import Layout from "@/layout";
+import NotFound from "@/pages/NotFound";
 
-const App = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
-  );
-};
+interface RouteItem {
+  path: string;
+  element: ReactNode;
+  children?: RouteItem[];
+}
 
-export default App;
+const routes: RouteItem[] = [
+  {
+    path: "/",
+    element: <Navigate to="/home" />,
+  },
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { path: "home", element: <Home /> },
+      { path: "about", element: <About /> },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+];
+
+export default routes;
