@@ -4,7 +4,7 @@ import TableList from "./TableList";
 export default () => {
   return (
     <>
-      <div style={{ marginTop: 10 }}>
+      <div>
         <SearchHeader />
         <TableList />
       </div>

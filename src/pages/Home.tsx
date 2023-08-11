@@ -14,7 +14,11 @@ function App() {
 
   return (
     <>
-      <p>用户：{user.name}</p>
+      <p className="text-18">用户：{user.name}</p>
+      <main className="flex items-center">
+        <p className="text-26 font-bold color-red-500">UnoCSS</p>
+        <p className="ml-30 text-14 text-green">Hello</p>
+      </main>
     </>
   );
 }

@@ -3,7 +3,7 @@ import Nav from "./Nav";
 
 const AppWrapper = () => {
   return (
-    <div style={{ width: 1200, margin: "0 auto" }}>
+    <div className="w-1200 mx-auto">
       <Nav />
       <Router />
     </div>
