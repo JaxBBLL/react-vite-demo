@@ -12,7 +12,7 @@ dependencies:
     specifier: 1.3.3
     version: registry.npmmirror.com/@arco-plugins/vite-react@1.3.3
   '@unocss/reset':
-    specifier: ^0.55.0
+    specifier: 0.55.0
     version: registry.npmmirror.com/@unocss/reset@0.55.0
   react:
     specifier: 18.2.0
