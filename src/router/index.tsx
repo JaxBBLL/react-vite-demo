@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import Home from "@/pages/Home";
 import Layout from "@/layout";
 import NotFound from "@/pages/NotFound";
+import { Skeleton } from "@arco-design/web-react";
 
 const modules = import.meta.glob("../pages/**/*.tsx");
 
@@ -15,7 +16,7 @@ const loadView = (view: string) => {
     }
   }
   return PageView ? (
-    <React.Suspense fallback={<div>loading</div>}>
+    <React.Suspense fallback={<Skeleton />}>
       <PageView />
     </React.Suspense>
   ) : (

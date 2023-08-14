@@ -1,25 +1,29 @@
-import { useState } from "react";
-import { useProvider } from "../context";
-import { useMount } from "@/hooks";
-import { getRandomColor } from "@/utils";
+import { useStore } from "@/store";
+import { Button, Space } from "@arco-design/web-react";
+import { IconPlus, IconDelete, IconMinus } from "@arco-design/web-react/icon";
 
 export default () => {
-  const { user } = useProvider();
-  const [color, setColor] = useState("");
+  const { state, dispatch } = useStore();
 
-  useMount(() => {
-    setColor(getRandomColor());
-  });
+  const increment = () => {
+    dispatch({ type: "INCREMENT" });
+  };
+
+  const decrement = () => {
+    dispatch({ type: "DECREMENT" });
+  };
 
   return (
     <>
-      <p className="text-16">
-        用户：<span style={{ color }}>{user.name}</span>
-      </p>
-      <main className="flex items-center">
-        <p className="text-26 font-bold color-red-500">UnoCSS</p>
-        <p className="ml-30 text-14 text-green">Hello</p>
-      </main>
+      <div className="mb-10">Count: {state.count}</div>
+      <Space>
+        <Button type="primary" icon={<IconPlus />} onClick={increment} />
+        <Button
+          type="primary"
+          icon={<IconMinus />}
+          onClick={decrement}
+        ></Button>
+      </Space>
     </>
   );
 };
