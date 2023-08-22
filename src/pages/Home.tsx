@@ -1,12 +1,14 @@
 import { useStore } from "@/store";
 import { Button, Space } from "@arco-design/web-react";
-import { IconPlus, IconDelete, IconMinus } from "@arco-design/web-react/icon";
+import { IconPlus, IconMinus } from "@arco-design/web-react/icon";
 
 export default () => {
   const { state, dispatch } = useStore();
 
   const increment = () => {
-    dispatch({ type: "INCREMENT" });
+    setTimeout(() => {
+      dispatch({ type: "INCREMENT", paload: ~~(Math.random() * 5) });
+    }, 300);
   };
 
   const decrement = () => {

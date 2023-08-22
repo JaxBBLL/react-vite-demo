@@ -1,38 +1,11 @@
-import React, { createContext, useContext, useReducer, ReactNode } from "react";
-
-// 创建初始状态
-interface AppState {
-  count: number;
-}
-
-// 定义操作类型
-type AppAction = { type: "INCREMENT" } | { type: "DECREMENT" };
-
-// 定义 reducer 函数来处理状态变化
-function reducer(state: AppState, action: AppAction): AppState {
-  switch (action.type) {
-    case "INCREMENT":
-      return { ...state, count: state.count + 1 };
-    case "DECREMENT":
-      return { ...state, count: state.count - 1 };
-    default:
-      return state;
-  }
-}
+import { createContext, useContext, useReducer } from "react";
+import { reducer } from "./reducer";
+import { StoreContextType, StoreProviderProps } from "./type";
 
 // 创建 Context
-interface StoreContextType {
-  state: AppState;
-  dispatch: React.Dispatch<AppAction>;
-}
-
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
 // 创建 Context Provider 组件
-interface StoreProviderProps {
-  children: ReactNode;
-}
-
 export function StoreProvider({ children }: StoreProviderProps) {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
 
