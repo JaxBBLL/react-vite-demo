@@ -4,19 +4,18 @@ import {
   presetUno,
   presetIcons,
 } from "unocss";
+import presetRemToPx from "@unocss/preset-rem-to-px";
 
 export default defineConfig({
   presets: [
+    presetRemToPx({
+      baseFontSize: 4, // 1单位 = 0.25rem = 1px
+    }),
     presetUno(),
     presetAttributify(),
     presetIcons({ scale: 1.2, warn: true }),
   ],
-  shortcuts: [
-    ["wh-full", "w-full h-full"],
-    ["f-c-c", "flex justify-center items-center"],
-    ["flex-col", "flex flex-col"],
-    ["text-ellipsis", "truncate"],
-  ],
+  shortcuts: [["wh-full", "w-full h-full"]],
   rules: [],
   theme: {
     colors: {

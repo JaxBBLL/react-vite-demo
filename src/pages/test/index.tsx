@@ -1,7 +1,9 @@
+import "./style.less";
+
 export default () => {
   return (
     <>
-      <div className="text-40">test</div>
+      <div className="txt">test</div>
     </>
   );
 };
