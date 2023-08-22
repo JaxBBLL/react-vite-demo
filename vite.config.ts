@@ -3,6 +3,7 @@ import path from "path";
 import react from "@vitejs/plugin-react";
 import { vitePluginForArco } from "@arco-plugins/vite-react";
 import Unocss from "unocss/vite";
+import postCssPxToRem from "postcss-pxtorem";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -26,6 +27,14 @@ export default defineConfig({
     },
   },
   css: {
+    postcss: {
+      plugins: [
+        postCssPxToRem({
+          rootValue: 16,
+          propList: ["*"],
+        }),
+      ],
+    },
     preprocessorOptions: {
       less: {
         modifyVars: {
